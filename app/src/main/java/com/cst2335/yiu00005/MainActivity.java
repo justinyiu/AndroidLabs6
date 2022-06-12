@@ -31,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar snackbar = Snackbar.make(findViewById(R.id.Switch), "The switch is now ", Snackbar.LENGTH_SHORT);
                 snackbar.setAction( "Undo", click -> sw.setChecked(false));
                 snackbar.show();
+
                 if(sw.isChecked())  {
+
+
                     snackbar.setText("The switch is now ON");
                     Log.i(TAG, "view");
                 }

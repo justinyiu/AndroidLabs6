@@ -4,7 +4,6 @@
     <string name="hello_message">Lab 2 GUI:</string>
     <string name="ButtonText">I\'m a button</string>
     <string name="Checkbox">Check this out</string>
-
     <string name="Switch">Switch on/off</string>
     <string name="edit">Enter name here</string>
     <string name="image"></string>

@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Lab 2 - </string>
     <string name="hello_message">Lab 2 GUI:</string>
-    <string name="ButtonText">點擊這裡</string>
-    <string name="Checkbox">看一下這個</string>
-    <string name="Switch">打開/關閉</string>
-    <string name="edit">在此處輸入姓名</string>
+    <string name="ButtonText">je suis un bouton</string>
+    <string name="Checkbox">regarde ça</string>
+    <string name="Switch">allumer / éteindre</string>
+    <string name="edit">entrez le nom ici</string>
     <string name="image"></string>
 
 </resources>
