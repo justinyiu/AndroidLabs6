@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_main_linear);
+        //setContentView(R.layout.activity_main_constraint);
 
         Log.i(TAG,"MainActivity");
 
