@@ -1,6 +1,10 @@
 package com.cst2335.yiu00005;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.Switch;
@@ -8,22 +12,49 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
+import android.widget.EditText;
 
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+
     //May 19
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setContentView(R.layout.activity_main_linear);
-        //setContentView(R.layout.activity_main_constraint);
+        setContentView(R.layout.lab3layout);
 
-        Log.i(TAG,"MainActivity");
+        EditText editText = findViewById(R.id.editText);
+        Button btn = findViewById(R.id.button);
 
+        SharedPreferences sp = getSharedPreferences("data", Context.MODE_PRIVATE);
+        String previous = sp.getString("editEmail", "");
+        editText.setText(previous);
+
+        btn.setOnClickListener(click -> {
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("editEmail", editText.getText().toString());
+            editor.apply();
+
+            Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
+            goToProfile.putExtra("EMAIL", editText.getText().toString());
+            startActivity(goToProfile);
+
+
+                });
+
+
+
+        }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    /**
         Switch sw = findViewById(R.id.Switch);
 
         sw.setOnClickListener(new View.OnClickListener() {
@@ -58,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }) ;
 
-
+**/
         }
 
 
-    }
+
