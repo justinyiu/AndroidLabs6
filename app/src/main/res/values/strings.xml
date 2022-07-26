@@ -1,27 +1,18 @@
 <resources>
-    <string name="app_name">Lab 2 - </string>
-    <string name="hello_message">Lab 3 GUI:</string>
-    <string name="email_text">Enter your email address</string>
-    <string name="user_email">Type email here:</string>
-    <string name="ask_password">Type your password:</string>
-    <string name="user_password">Type password here</string>
-    <string name="ButtonText">Log in</string>
-    <string name="Checkbox">regarde ça</string>
-    <string name="Switch">allumer / éteindre</string>
-    <string name="edit">entrez le nom ici</string>
-    <string name="image"></string>
-
-
-    <string name="req_email">Enter your email:</string>
-    <string name="enter_email">Type email here</string>
-    <string name="req_pw">Enter your password</string>
-    <string name="enter_pw">Type password here</string>
-    <string name="login">Login</string>
-    <string name="yourProfile">Your Profile</string>
-    <string name="name">Your Name: </string>
-    <string name="enter_name">Enter your name: </string>
-    <string name="email">Your Email:</string>
-    <string name="picture">Your Picture:</string>
-    <string name="req_click">Click the button above to take a picture</string>
-
+    <string name="app_name">Lab 4</string>
+    <string name="TextViewText">Enter your email address:</string>
+    <string name="editText">Type email here</string>
+    <string name="textView2">Type your password:</string>
+    <string name="button">LOGIN</string>
+    <string name="textView4">Your profile</string>
+    <string name="textView5">Your name:</string>
+    <string name="editTextTextPersonName">Enter your name</string>
+    <string name="textView6">Your email:</string>
+    <string name="editTextTextPersonName2">Enter your email</string>
+    <string name="textView7">Your picture:</string>
+    <string name="textView8">Click the button above to take a picture</string>
+    <string name="chatButton">Go to chat</string>
+    <string name="editTextMessage">Type here</string>
+    <string name="sendButton">SEND</string>
+    <string name="receiveButton">RECEIVE</string>
 </resources>

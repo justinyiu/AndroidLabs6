@@ -1,29 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lab 2 - </string>
-    <string name="hello_message">Lab 3 GUI:</string>
-    <string name="email_text">Enter your email address</string>
-    <string name="user_email">Type email here:</string>
-    <string name="ask_password">Type your password:</string>
-    <string name="user_password">Type password here</string>
-    <string name="ButtonText">Log in</string>
-    <string name="Checkbox">regarde ça</string>
-    <string name="Switch">allumer / éteindre</string>
-    <string name="edit">entrez le nom ici</string>
-    <string name="image"></string>
-
-
-    <string name="req_email">Enter your email:</string>
-    <string name="enter_email">Type email here</string>
-    <string name="req_pw">Enter your password</string>
-    <string name="enter_pw">Type password here</string>
-    <string name="login">Login</string>
-    <string name="yourProfile">Your Profile</string>
-    <string name="name">Your Name: </string>
-    <string name="enter_name">Enter your name: </string>
-    <string name="email">Your Email:</string>
-    <string name="picture">Your Picture:</string>
-    <string name="req_click">Click the button above to take a picture</string>
-
-
+    <string name="app_name">Laboratoire 4</string>
+    <string name="TextViewText">Entrez votre adresse email:</string>
+    <string name="editText">Tapez le-mail ici:</string>
+    <string name="textView2">Tapez votre mot de passe:</string>
+    <string name="button">Connexion</string>
+    <string name="textView4">Votre profil</string>
+    <string name="textView5">Votre nom</string>
+    <string name="editTextTextPersonName">Entrez votre nom</string>
+    <string name="textView6">Votre e-mail</string>
+    <string name="editTextTextPersonName2">Entrer votre Email</string>
+    <string name="textView7">Ta photo:</string>
+    <string name="textView8">Cliquez sur le bouton ci-dessus pour prendre une photo</string>
+    <string name="chatButton">Allez discuter</string>
+    <string name="editTextMessage">Écrivez ici</string>
+    <string name="sendButton">Envoyer</string>
+    <string name="receiveButton">Recevoir</string>
 </resources>

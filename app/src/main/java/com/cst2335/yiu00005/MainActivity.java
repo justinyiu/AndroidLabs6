@@ -1,96 +1,96 @@
 package com.cst2335.yiu00005;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.Intent;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.Switch;
+import android.content.SharedPreferences;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
-import com.google.android.material.snackbar.Snackbar;
+import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 
+public class MainActivity extends AppCompatActivity  {
+    private static final String TAG = "MainActivity";
+    public final static String PREFERENCES_FILE = "MyData";
+    String email;
+    EditText emailInput;
 
-public class MainActivity extends AppCompatActivity {
-
-
-    //May 19
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lab3layout);
+        Log.e(TAG, "In function: onCreate");
+        setContentView(R.layout.activity_main);
 
-        EditText editText = findViewById(R.id.editText);
-        Button btn = findViewById(R.id.button);
+        emailInput = findViewById(R.id.editText);
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                email = emailInput.getText().toString();
+                Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                goToProfile.putExtra("EMAIL", email);
+                startActivity(goToProfile);
 
-        SharedPreferences sp = getSharedPreferences("data", Context.MODE_PRIVATE);
-        String previous = sp.getString("editEmail", "");
-        editText.setText(previous);
+            }
+        });
 
-        btn.setOnClickListener(click -> {
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putString("editEmail", editText.getText().toString());
-            editor.apply();
+        SharedPreferences prefs = getSharedPreferences( "activity_main.xml",
+                Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("EMAIL", email);
+        editor.apply();
 
-            Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
-            goToProfile.putExtra("EMAIL", editText.getText().toString());
-            startActivity(goToProfile);
+        prefs.getString("EMAIL", "");
 
+    }
 
-                });
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "In function: onStart");
+    }
 
-
-
-        }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "In function: onResume");
+    }
 
     @Override
     protected void onPause() {
         super.onPause();
-
+        Log.i(TAG, "In function: onPause");
     }
 
-    /**
-        Switch sw = findViewById(R.id.Switch);
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "In function: onStop");
+    }
 
-        sw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar snackbar = Snackbar.make(findViewById(R.id.Switch), "The switch is now ", Snackbar.LENGTH_SHORT);
-                snackbar.setAction( "Undo", click -> sw.setChecked(false));
-                snackbar.show();
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "In function: onRestart");
+    }
 
-                if(sw.isChecked())  {
-
-
-                    snackbar.setText("The switch is now ON");
-                    Log.i(TAG, "view");
-                }
-                else if (!sw.isChecked()) {
-                    snackbar.setText("The switch is now OFF");
-                    Log.i(TAG,"view");
-                }
-            }
-        });
-
-        Button btn = findViewById(R.id.button);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(),"Here is more information", Toast.LENGTH_LONG);
-                toast.show();
-
-                Log.i(TAG,"view");
-            }
-        }) ;
-
-**/
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "In function: onDestroy");
+    }
 
 
+
+}
 

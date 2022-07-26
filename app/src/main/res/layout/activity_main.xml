@@ -1,71 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/TextView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="@string/hello_message"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/TextView1"/>
 
-        />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/enter_email"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:inputType="textEmailAddress"
+        android:autofillHints=""
+        android:hint="@string/EditText1"/>
+
+    <TextView
+        android:id="@+id/TextView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/TextView2"/>
+
+    <EditText
+        android:id="@+id/EditText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:autofillHints=""
+        android:hint="@string/EditText2"
+        android:text="@string/EditText2"/>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="187dp"
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="fill"
-
-        android:text="@string/ButtonText" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Checkbox" />
-
-</LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/flag"
-        android:contentDescription="@string/image" />
-
-    <Switch
-        android:id="@+id/Switch"
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:text="@string/Switch"
-
-        tools:ignore="OnClick,UseSwitchCompatOrMaterialXml,UseSwitchCompatOrMaterialXML"
-        />
-    </LinearLayout>
-    <EditText
-        android:layout_width="188dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="fill"
-        android:hint="@string/edit"
-        android:autofillHints=""
-        android:inputType="textPersonName"
-        />
+        android:text="@string/ButtonText"/>
 
 
 </LinearLayout>

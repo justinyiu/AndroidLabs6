@@ -6,101 +6,114 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class ProfileActivity extends AppCompatActivity {
+    public static final String TAG = "ProfileActivity";
+    ImageView imgView;
+    EditText emailText;
 
 
-
-    public final static String TAG = "PROFILE_ACTIVITY";
+    ActivityResultLauncher<Intent> myPictureTakerLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK)
+                    { Intent data = result.getData();
+                        Bitmap imgbitmap = (Bitmap) data.getExtras().get("data");
+                        imgView = findViewById(R.id.imageButton);
+                        imgView.setImageBitmap(imgbitmap); // the imageButton
+                    }
+                    else if(result.getResultCode() == Activity.RESULT_CANCELED)
+                        Log.i(TAG, "User refused to capture a picture.");
+                }
+            } );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e(TAG, "In function: onCreate");
         setContentView(R.layout.activity_profile_lab3);
-        ImageButton imgbtn = findViewById(R.id.imageButton2);
-
-        ActivityResultLauncher<Intent> myPictureTakerLauncher =
-                registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
-                        ,new ActivityResultCallback<ActivityResult>() {
-                            @Override
-                            public void onActivityResult(ActivityResult result) {
-                                if (result.getResultCode() == Activity.RESULT_OK) {
-                                    Intent data = result.getData();
-                                    Bitmap imgbitmap = (Bitmap) data.getExtras().get("data");
-                                    imgbtn.setImageBitmap(imgbitmap); // the imageButton
-                                } else if (result.getResultCode() == Activity.RESULT_CANCELED)
-                                    Log.i(TAG, "User refused to capture a picture.");
-                            }
-                        });
 
         Intent fromMain = getIntent();
-        EditText emailEditTest = findViewById(R.id.editText2);
-        emailEditTest.setText(fromMain.getStringExtra("EMAIL"));
+        String email = fromMain.getStringExtra("EMAIL");
+        emailText = findViewById(R.id.editTextTextPersonName2);
+        emailText.setText(email);
 
-        ImageButton ibtn = findViewById(R.id.imageButton2);
-        ibtn.setOnClickListener((vw) -> {
+        SharedPreferences prefs = getSharedPreferences(MainActivity.PREFERENCES_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("EMAIL", "");
 
-            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                myPictureTakerLauncher.launch(takePictureIntent);
+
+        ImageButton imgBt = findViewById(R.id.imageButton);
+        imgBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                    myPictureTakerLauncher.launch(takePictureIntent);
+                }
             }
-
-            myPictureTakerLauncher.launch(takePictureIntent);
-
-            startActivity(takePictureIntent);
-
         });
 
+        Button chatButton = findViewById(R.id.chatButton);
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToProfile = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+                startActivity(goToProfile);
+            }
+        });
 
     }
 
-    @Override //screen is visible but not responding
+    @Override
     protected void onStart() {
         super.onStart();
-
-        Log.d(TAG, "In onStart, visible but not responding");
+        Log.i(TAG, "In function: onStart");
     }
 
-    @Override //screen is visible but not responding
+    @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "In onResume");
+        Log.i(TAG, "In function: onResume");
     }
 
-    @Override //screen is visible but not responding
+    @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "In onPause");
+        Log.i(TAG, "In function: onPause");
     }
 
-    @Override //not visible
+    @Override
     protected void onStop() {
         super.onStop();
-        Log.i(TAG, "In onStop");
+        Log.i(TAG, "In function: onStop");
     }
 
-    @Override  //garbage collected
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "In function: onRestart");
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(TAG, "In onDestroy");
+        Log.i(TAG, "In function: onDestroy");
     }
-
-
-    protected void onActivityResult(){
-        Log.e(TAG,"In function:");
-    }
-
-
-
-
-
 }
