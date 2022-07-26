@@ -5,7 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+
+    >
 
     <TextView
 
@@ -33,8 +40,14 @@
         android:id="@+id/nameID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:hint="@string/name_hint"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+
+        android:nextFocusDown="@id/nameID"
+        android:nextFocusUp="@id/emailID"
+        android:nextFocusRight="@id/btn_chat"
+        android:nextFocusLeft="@id/btn_weather"
         />
 
     <TextView
@@ -52,8 +65,14 @@
         android:id="@+id/emailID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
         android:hint="@string/email_hint2"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+
+        android:nextFocusDown="@id/nameID"
+        android:nextFocusUp="@id/emailID"
+        android:nextFocusRight="@id/btn_chat"
+        android:nextFocusLeft="@id/btn_weather"
         />
 
     <TextView
@@ -71,9 +90,10 @@
         android:id="@+id/imgBtn_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/picture_frame"
+        android:minHeight="48dp"
 
-        />
+        android:src="@android:drawable/picture_frame"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 
     <TextView
@@ -91,12 +111,24 @@
         android:id="@+id/btn_chat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_chat" />
+        android:text="@string/btn_chat"
+
+        android:nextFocusDown="@id/nameID"
+        android:nextFocusUp="@id/emailID"
+        android:nextFocusRight="@id/btn_chat"
+        android:nextFocusLeft="@id/btn_weather"
+        />
 
     <Button
         android:id="@+id/btn_weather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Weather Forecast" />
+        android:text="Weather Forecast"
+
+        android:nextFocusDown="@id/nameID"
+        android:nextFocusUp="@id/emailID"
+        android:nextFocusRight="@id/btn_chat"
+        android:nextFocusLeft="@id/btn_weather"
+        />
 
 </LinearLayout>

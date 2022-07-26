@@ -4,8 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
 
-    android:orientation="vertical">
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+
+    >
 
     <TextView
         android:id="@+id/emailID"
@@ -22,15 +28,20 @@
         android:id="@+id/email_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
         android:hint="@string/email_hint"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+
+        android:nextFocusDown="@id/email_input"
+        android:nextFocusUp="@id/passwd_input"
+        android:nextFocusLeft="@id/btn_login"
+        android:nextFocusRight="@id/btn_login"
         />
 
     <TextView
         android:id="@+id/passwdID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:text="@string/passwd_message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,16 +50,32 @@
         />
 
     <EditText
+        android:id="@+id/passwd_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Enter password here"
         android:inputType="textPassword"
+        android:minHeight="48dp"
+
+        android:nextFocusDown="@id/email_input"
+        android:nextFocusUp="@id/passwd_input"
+        android:nextFocusLeft="@id/btn_login"
+        android:nextFocusRight="@id/btn_login"
         />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/loginBtn" />
+        android:text="@string/loginBtn"
+
+        android:nextFocusDown="@id/email_input"
+        android:nextFocusUp="@id/passwd_input"
+        android:nextFocusLeft="@id/btn_login"
+        android:nextFocusRight="@id/btn_login"
+
+        />
+
 
 
 
