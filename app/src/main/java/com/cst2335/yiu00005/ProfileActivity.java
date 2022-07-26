@@ -12,95 +12,101 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-
-
-    public final static String TAG = "PROFILE_ACTIVITY";
+    public static final String TAG = "PROFILE_ACTIVITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_lab3);
-        ImageButton imgbtn = findViewById(R.id.imageButton2);
-
-        ActivityResultLauncher<Intent> myPictureTakerLauncher =
-                registerForActivityResult(new ActivityResultContracts.StartActivityForResult()
-                        ,new ActivityResultCallback<ActivityResult>() {
-                            @Override
-                            public void onActivityResult(ActivityResult result) {
-                                if (result.getResultCode() == Activity.RESULT_OK) {
-                                    Intent data = result.getData();
-                                    Bitmap imgbitmap = (Bitmap) data.getExtras().get("data");
-                                    imgbtn.setImageBitmap(imgbitmap); // the imageButton
-                                } else if (result.getResultCode() == Activity.RESULT_CANCELED)
-                                    Log.i(TAG, "User refused to capture a picture.");
-                            }
-                        });
+        setContentView(R.layout.activity_profile);
 
         Intent fromMain = getIntent();
-        EditText emailEditTest = findViewById(R.id.editText2);
-        emailEditTest.setText(fromMain.getStringExtra("EMAIL"));
+        EditText emailSet = findViewById(R.id.emailID);
+        emailSet.setText(fromMain.getStringExtra("email"));
 
-        ImageButton ibtn = findViewById(R.id.imageButton2);
-        ibtn.setOnClickListener((vw) -> {
-
+        ImageButton imgBtn = findViewById(R.id.imgBtn_1);
+        imgBtn.setOnClickListener(v -> { //new Intent(Intent.ACTION_VIEW);
             Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            if(takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(takePictureIntent);
                 myPictureTakerLauncher.launch(takePictureIntent);
             }
+        });
+        Log.e("profileActivity", "onCreate stage");
 
-            myPictureTakerLauncher.launch(takePictureIntent);
-
-            startActivity(takePictureIntent);
-
+        Button btnChat = findViewById(R.id.btn_chat);
+        btnChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToChat = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+                startActivity(goToChat);
+            }
         });
 
-
+        Button btnWeather = findViewById(R.id.btn_weather);
+        btnWeather.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent weatherForecast = new Intent(ProfileActivity.this, WeatherForecast.class);
+                startActivity(weatherForecast);
+            }
+        });
     }
+    //*************************************************************************************************
+    ActivityResultLauncher<Intent> myPictureTakerLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+                @Override //onActivityResult(int requestCode, inresultCode, Intent dataBack)
+                public void onActivityResult(ActivityResult result) {
+                    if(result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        ImageButton imgBtn = findViewById(R.id.imgBtn_1);
+                        Bitmap imgbitmap = (Bitmap) data.getExtras().get("data");
+                        imgBtn.setImageBitmap(imgbitmap);
+                        Log.e("profileActivity", "User takes picture");
+                    }
+                    else if(result.getResultCode() == Activity.RESULT_CANCELED)
+                        Log.i(TAG, "User refused to capture a picture.");
+                }
 
-    @Override //screen is visible but not responding
-    protected void onStart() {
+            }
+    );
+    //*************************************************************************************************
+    @Override
+    public void onStart(){
         super.onStart();
-
-        Log.d(TAG, "In onStart, visible but not responding");
+        Log.e("profileActivity", "onStart stage");
     }
 
-    @Override //screen is visible but not responding
-    protected void onResume() {
+
+    @Override
+    public void onResume(){
         super.onResume();
-        Log.d(TAG, "In onResume");
+        Log.e("profileActivity", "onResume stage");
     }
 
-    @Override //screen is visible but not responding
-    protected void onPause() {
+    @Override
+    public void onPause(){
         super.onPause();
-        Log.d(TAG, "In onPause");
+        Log.e("profileActivity", "onPause stage");
     }
 
-    @Override //not visible
-    protected void onStop() {
+    @Override
+    public void onStop(){
         super.onStop();
-        Log.i(TAG, "In onStop");
+        Log.e("profileActivity", "onStop stage");
     }
 
-    @Override  //garbage collected
-    protected void onDestroy() {
+
+    @Override
+    public void onDestroy(){
         super.onDestroy();
-        Log.i(TAG, "In onDestroy");
+        Log.e("profileActivity", "onDestroy stage");
     }
-
-
-    protected void onActivityResult(){
-        Log.e(TAG,"In function:");
-    }
-
-
-
-
 
 }

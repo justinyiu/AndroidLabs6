@@ -4,76 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:ignore="MissingClass">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="169dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/ButtonText"
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_message"
+        android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.569" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <ImageButton
-        android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="94dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/flag"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/flag" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="320dp"
+        android:text="@string/ButtonText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_width="185dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="89dp"
-        android:layout_marginBottom="296dp"
-        android:text="@string/Switch"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="184dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="173dp"
-        android:layout_marginEnd="181dp"
-        android:layout_marginBottom="16dp"
-        android:textAlignment="center"
-        android:text="@string/edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.518"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:text="@string/hello_message"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="320dp"
+        android:text="@string/switch_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="420dp"
+        android:background="@android:color/transparent"
+        android:hint="@string/hint_text"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

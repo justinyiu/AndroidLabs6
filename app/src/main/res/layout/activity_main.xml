@@ -5,67 +5,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:text="@string/hello_message"
+        android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="187dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="fill"
 
-        android:text="@string/ButtonText" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_weight="1"
+            android:text="@string/ButtonText" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Checkbox" />
-
-</LinearLayout>
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_weight="1"
+            android:text="@string/CheckBoxText" />
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <ImageButton
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/flag"
-        android:contentDescription="@string/image" />
+        android:orientation="horizontal">
 
-    <Switch
-        android:id="@+id/Switch"
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:text="@string/Switch"
 
-        tools:ignore="OnClick,UseSwitchCompatOrMaterialXml,UseSwitchCompatOrMaterialXML"
-        />
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_weight="1"
+            android:src="@drawable/flag" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_weight="1"
+            android:text="@string/switch_text" />
+
     </LinearLayout>
-    <EditText
-        android:layout_width="188dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="fill"
-        android:hint="@string/edit"
-        android:autofillHints=""
-        android:inputType="textPersonName"
-        />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_text"
+        android:inputType="textPersonName" />
 
 </LinearLayout>

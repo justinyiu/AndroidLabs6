@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lab 2 - </string>
-    <string name="hello_message">Lab 3 GUI:</string>
-    <string name="email_text">Enter your email address</string>
-    <string name="user_email">Type email here:</string>
-    <string name="ask_password">Type your password:</string>
-    <string name="user_password">Type password here</string>
-    <string name="ButtonText">Log in</string>
-    <string name="Checkbox">regarde ça</string>
-    <string name="Switch">allumer / éteindre</string>
-    <string name="edit">entrez le nom ici</string>
-    <string name="image"></string>
-
-
-    <string name="req_email">Enter your email:</string>
-    <string name="enter_email">Type email here</string>
-    <string name="req_pw">Enter your password</string>
-    <string name="enter_pw">Type password here</string>
-    <string name="login">Login</string>
-    <string name="yourProfile">Your Profile</string>
-    <string name="name">Your Name: </string>
-    <string name="enter_name">Enter your name: </string>
-    <string name="email">Your Email:</string>
-    <string name="picture">Your Picture:</string>
-    <string name="req_click">Click the button above to take a picture</string>
-
-
+    <string name="app_name">laboratoires androïdes</string>
+    <string name="hello_message">lab 2 interface graphique:</string>
+    <string name="ButtonText">Cliquez ici</string>
+    <string name="CheckBoxText">regarde ça</string>
+    <string name="toast_message">voici plus d infos</string>
+    <string name="switch_text">allumer / éteindre</string>
+    <string name="hint_text">Entrez le nom ici</string>
+    <string name="snackbar_undo">annuler</string>
+    <string name="snackbar_on">interrupteur est maintenant allumé</string>
+    <string name="snackbar_off">interrupteur est maintenant éteint</string>
+    <string name="email_message">Entrez votre adresse email:</string>
+    <string name="email_hint">tapez email ici</string>
+    <string name="passwd_message">tapez votre mot de passe:</string>
+    <string name="loginBtn">connexion</string>
+    <string name="profile">votre profil</string>
+    <string name="name_info">votre nom:</string>
+    <string name="email_info">votre e-mail:</string>
+    <string name="pic_info">ta photo:</string>
+    <string name="btn_info">cliquez sur le bouton pour prendre une photo</string>
+    <string name="email_hint2">entrer votre Email</string>
+    <string name="name_hint">entrez votre nom</string>
+    <string name="btn_chat">aller au salon de discussion</string>
+    <string name="chatTextHint">écrivez ici</string>
+    <string name="btn_send">envoyer</string>
+    <string name="btn_receive">recevoir</string>
 </resources>

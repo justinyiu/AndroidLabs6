@@ -1,27 +1,27 @@
 <resources>
-    <string name="app_name">Lab 2 - </string>
-    <string name="hello_message">Lab 3 GUI:</string>
-    <string name="email_text">Enter your email address</string>
-    <string name="user_email">Type email here:</string>
-    <string name="ask_password">Type your password:</string>
-    <string name="user_password">Type password here</string>
-    <string name="ButtonText">Log in</string>
-    <string name="Checkbox">regarde ça</string>
-    <string name="Switch">allumer / éteindre</string>
-    <string name="edit">entrez le nom ici</string>
-    <string name="image"></string>
-
-
-    <string name="req_email">Enter your email:</string>
-    <string name="enter_email">Type email here</string>
-    <string name="req_pw">Enter your password</string>
-    <string name="enter_pw">Type password here</string>
-    <string name="login">Login</string>
-    <string name="yourProfile">Your Profile</string>
-    <string name="name">Your Name: </string>
-    <string name="enter_name">Enter your name: </string>
-    <string name="email">Your Email:</string>
-    <string name="picture">Your Picture:</string>
-    <string name="req_click">Click the button above to take a picture</string>
-
+    <string name="app_name">Android Labs</string>
+    <string name="hello_message">Lab 2 GUI:</string>
+    <string name="ButtonText">click here</string>
+    <string name="CheckBoxText">Check this out</string>
+    <string name="toast_message">Here is more information</string>
+    <string name="switch_text">Switch on/off</string>
+    <string name="hint_text">Enter Name Here</string>
+    <string name="snackbar_undo">Undo</string>
+    <string name="snackbar_on">The switch is now on</string>
+    <string name="snackbar_off">The switch is now off</string>
+    <string name="email_message">Enter your email address:</string>
+    <string name="email_hint">Type email here</string>
+    <string name="passwd_message">Type your password:</string>
+    <string name="loginBtn">LOGIN</string>
+    <string name="profile">Your profile</string>
+    <string name="name_info">Your name:</string>
+    <string name="email_info">Your email:</string>
+    <string name="pic_info">Your picture:</string>
+    <string name="btn_info">Click the button above to take a picture</string>
+    <string name="email_hint2">Enter your email</string>
+    <string name="name_hint">Enter your name</string>
+    <string name="btn_chat">Go to the chatroom</string>
+    <string name="chatTextHint">Type here</string>
+    <string name="btn_send">SEND</string>
+    <string name="btn_receive">RECEIVE</string>
 </resources>
