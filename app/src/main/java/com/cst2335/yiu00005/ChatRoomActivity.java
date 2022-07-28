@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ChatRoomActivity extends AppCompatActivity {
+    DetailsFragment dFragment;
     private Button send;
     private Button receive;
     private EditText chatText;
@@ -59,7 +60,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             if(isTablet)
             {
-                DetailsFragment dFragment = new DetailsFragment(); //add a DetailFragment
+                dFragment = new DetailsFragment(); //add a DetailFragment
                 dFragment.setArguments( dataToPass ); //pass it a bundle for information
                 getSupportFragmentManager()
                         .beginTransaction()
@@ -148,6 +149,8 @@ public class ChatRoomActivity extends AppCompatActivity {
                         .setPositiveButton("Positive", (dialog, click2)->{
                             messageList.remove(position);
                             myAdapter.notifyDataSetChanged();
+                            getSupportFragmentManager().beginTransaction().remove(dFragment).commit();
+
 
                             myDatabase.delete(MyOpenHelper.TABLE_NAME,MyOpenHelper.COL_ID +" = ?", new String[]{Long.toString(id)});
 

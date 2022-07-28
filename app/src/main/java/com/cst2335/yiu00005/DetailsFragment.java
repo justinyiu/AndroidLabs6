@@ -93,7 +93,7 @@ public class DetailsFragment extends Fragment {
         hideButton.setOnClickListener( clk -> {
             //tell the parent activity to hide
 
-            parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
+            getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
         });
 
         return result;
