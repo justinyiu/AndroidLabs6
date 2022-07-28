@@ -17,6 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.content.Intent;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,11 +34,48 @@ public class ChatRoomActivity extends AppCompatActivity {
     private MyOpenHelper myOpener;
     private SQLiteDatabase myDatabase;
 
+    public static final String ITEM_SELECTED = "ITEM";
+    public static final String ITEM_POSITION = "POSITION";
+    public static final String ITEM_ID = "ID";
+
+    ArrayList<String> source = new ArrayList<>(Arrays.asList("One", "Two", "Three", "Four"));
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
 
+        ListView chatList = (ListView) findViewById(R.id.chatList);
+        //fragment
+        boolean isTablet = findViewById(R.id.fragmentLocation) != null; // checks if the fragment is loaded
+
+        ArrayAdapter<String> theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, source );
+        chatList.setAdapter(theAdapter);
+        chatList.setOnItemClickListener((list, item, position, id) -> {
+            //create a bundle to pass data to the new fragment
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString(ITEM_SELECTED, source.get(position) );
+            dataToPass.putInt(ITEM_POSITION, position);
+            dataToPass.putLong(ITEM_ID, id);
+
+            if(isTablet)
+            {
+                DetailsFragment dFragment = new DetailsFragment(); //add a DetailFragment
+                dFragment.setArguments( dataToPass ); //pass it a bundle for information
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentLocation, dFragment) //Add the fragment in FrameLayout
+                        .commit(); //actually load the fragment. Calls onCreate() in DetailFragment
+            }
+            else //isPhone
+            {
+                Intent nextActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                nextActivity.putExtras(dataToPass); //send data to next activity
+                startActivity(nextActivity); //make the transition
+            }
+        });
+
+
+//**************************************************************************************************
         myOpener = new MyOpenHelper(this);
         myDatabase = myOpener.getWritableDatabase();
         Cursor history = myDatabase.rawQuery("Select * from " + MyOpenHelper.TABLE_NAME + ";", null);
